@@ -24,10 +24,20 @@ const STORE = [
     }
 ]
 
+function closeAboutUs(){
+    $('.close-this-modal').on('click', () => {
+        $('.about-us-modal').hide();
+        $('.tile-container').show();
+    })
+}
+
 function aboutUsDisplay(){
     $('.about-us-tile').on('click', () => {
-        console.log('clicked')
+        $('.tile-container').hide();
+        $('.about-us-modal').show();
     })
+
+    closeAboutUs()
 }
 
 function loadAboutUsTile(){
@@ -42,10 +52,9 @@ function loadAboutUsTile(){
 
 function loadLinkTiles(){
     STORE.forEach(tile => {
-        console.log(tile.title)
         const { id, href, title, tileIcon, tileText } = tile;
         $(".tile-container").append(
-            `<a style="order: ${id}" class="tile-link card" id="tile-${id}" href=${href} title=${title} target="_blank">
+            `<a style="order: ${id}" class="tile-link card" id="tile-${id}" href="${href}" title="${title}"  target="_blank">
                 <div class="tile">
                     <img class="tile-icon" src=${tileIcon} alt=${title}/>
                     <img class="tile-text" src=${tileText} alt=${title}/>

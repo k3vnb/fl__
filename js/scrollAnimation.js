@@ -3,7 +3,6 @@ const $window = $(window);
 
 function check_if_in_view() {
   const scrollTop = $window.scrollTop();
-
   $('.tile').each(function() {
     const el = $(this);
     // const element_height = el.outerHeight();
@@ -15,7 +14,6 @@ function check_if_in_view() {
     } else {
       el.removeClass('in-view')
     }
-
   });
 }
 
