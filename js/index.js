@@ -25,10 +25,15 @@ const STORE = [
 ]
 
 function closeAboutUs(){
-    $('.close-this-modal').on('click', () => {
-        // $('.about-us-modal').hide();
-        // $('.tile-container').show();
-
+    $('.about-us-tile').on('click', 'button', event => {
+        event.stopPropagation();
+        $('.about-us-tile').empty();
+        $('.tile').addClass('tile-hover-fx');
+        $('#tile-2').css('margin-right', 50);
+        $('.about-us-tile').removeClass('about-us-modal')
+        $('.about-us-tile').html(`
+                <img class="tile-text" src="img/About-Us.svg" alt="About Us"/>
+        `)
     })
 }
 
@@ -39,15 +44,15 @@ function aboutUsDisplay(){
         $('.about-us-tile').empty();
         $('.about-us-tile').html(
             `
-            <section id="about_us_modal" class="about-us-modal">
-            <video autoplay="autoplay" class="ignore-observer" playsinline="playsinline" muted="muted" poster="/assets/static/images/download/dropbox.jpg">
+
+            <video autoplay="autoplay" class="ignore-observer" playsinline="playsinline" muted="muted" poster="">
                 <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
             </video>
             <p class="about-us-modal-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia distinctio suscipit voluptatibus vero eos recusandae tempora nihil assumenda, sunt at odio atque dolores quasi fugit dolorem doloremque amet! Maxime, deleniti.</p>
             <button class="close-this-modal">
                 &#10005;
             </button>
-        </section>
+    
             `
         )
         $('.about-us-tile').addClass('about-us-modal');
