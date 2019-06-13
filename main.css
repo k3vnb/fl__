@@ -98,11 +98,11 @@ main {
 
 .about-us-tile {
     position: absolute;
-    bottom: -1px;
-    left: 6px;
+    bottom: 0px;
+    left: 7.5px;
     padding-bottom: 53px;
     justify-content: flex-end;
-    transition: .3s all linear;
+    transition: .2s all linear;
 }
 
 .about-us-tile .tile-text {
@@ -119,7 +119,7 @@ main {
     box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.25);
     border-radius: 18px;
     margin: 0;
-    transition: .3s all linear;
+    transition: .2s all linear;
 }
 
 .about-us-modal-text {

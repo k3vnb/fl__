@@ -29,6 +29,7 @@ function closeAboutUs(){
         event.stopPropagation();
         $('.about-us-tile').empty();
         $('.tile').addClass('tile-hover-fx');
+        $('a .tile').css('boxShadow', '2px 2px 9px 3px #595959a8');
         $('#tile-2').css('margin-right', 50);
         $('.about-us-tile').removeClass('about-us-modal')
         $('.about-us-tile').html(`
@@ -40,21 +41,23 @@ function closeAboutUs(){
 function aboutUsDisplay(){
     $('.about-us-tile').on('click', () => {
         $('.tile').removeClass('tile-hover-fx');
+        $('a .tile').css('boxShadow', 'none');
         $('#tile-2').css('margin-right', 0);
-        $('.about-us-tile').empty();
-        $('.about-us-tile').html(
-            `
-
-            <video autoplay="autoplay" class="ignore-observer" playsinline="playsinline" muted="muted" poster="">
-                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-            </video>
-            <p class="about-us-modal-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia distinctio suscipit voluptatibus vero eos recusandae tempora nihil assumenda, sunt at odio atque dolores quasi fugit dolorem doloremque amet! Maxime, deleniti.</p>
-            <button class="close-this-modal">
-                &#10005;
-            </button>
+        setTimeout(() => {
+            $('.about-us-tile').empty().fadeIn(1000).html(
+                `
     
-            `
-        )
+                <video autoplay="autoplay" class="ignore-observer" playsinline="playsinline" muted="muted" poster="">
+                    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                </video>
+                <p class="about-us-modal-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia distinctio suscipit voluptatibus vero eos recusandae tempora nihil assumenda, sunt at odio atque dolores quasi fugit dolorem doloremque amet! Maxime, deleniti.</p>
+                <button class="close-this-modal">
+                    &#10005;
+                </button>
+        
+                `)
+        }, 145)
+        
         $('.about-us-tile').addClass('about-us-modal');
     })
 
