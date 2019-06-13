@@ -61,7 +61,8 @@ html {
 
 /* custom css */
 main {
-    padding: 1000px 0px;
+    /* height: 1504px; */
+    padding: 400px 0px;
 }
 .tile-container {
     display: flex;
@@ -79,6 +80,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: 17px;
+    transition: all .2s linear;
 }
 
 .tile .tile-icon {
@@ -96,13 +98,13 @@ main {
     justify-content: flex-end;
 }
 
+.about-us-tile:hover {
+    cursor: pointer;
+}
+
 .about-us-tile .tile-text {
     width: 100px;
     height: 31px;
-}
-
-.in-view {
-    background-color: red;
 }
 
 @media screen and (min-width: 701px){
@@ -123,7 +125,15 @@ main {
         height: 265px;
         margin: 21.5px 25px;
     }
+    .tile:hover {
+        transform: scale(1.03);
+        box-shadow: 2px 2px 9px 3px #595959a8;
+    }
 }
 
-
-
+@media screen and (max-width: 700px){
+    .in-view {
+        transform: scale(1.03);
+        box-shadow: 2px 2px 9px 3px #595959a8;
+    }
+}
