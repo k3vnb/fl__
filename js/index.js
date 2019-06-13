@@ -26,15 +26,31 @@ const STORE = [
 
 function closeAboutUs(){
     $('.close-this-modal').on('click', () => {
-        $('.about-us-modal').hide();
-        $('.tile-container').show();
+        // $('.about-us-modal').hide();
+        // $('.tile-container').show();
+
     })
 }
 
 function aboutUsDisplay(){
     $('.about-us-tile').on('click', () => {
-        $('.tile-container').hide();
-        $('.about-us-modal').show();
+        $('.tile').removeClass('tile-hover-fx');
+        $('#tile-2').css('margin-right', 0);
+        $('.about-us-tile').empty();
+        $('.about-us-tile').html(
+            `
+            <section id="about_us_modal" class="about-us-modal">
+            <video autoplay="autoplay" class="ignore-observer" playsinline="playsinline" muted="muted" poster="/assets/static/images/download/dropbox.jpg">
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+            </video>
+            <p class="about-us-modal-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia distinctio suscipit voluptatibus vero eos recusandae tempora nihil assumenda, sunt at odio atque dolores quasi fugit dolorem doloremque amet! Maxime, deleniti.</p>
+            <button class="close-this-modal">
+                &#10005;
+            </button>
+        </section>
+            `
+        )
+        $('.about-us-tile').addClass('about-us-modal');
     })
 
     closeAboutUs()
@@ -42,7 +58,7 @@ function aboutUsDisplay(){
 
 function loadAboutUsTile(){
     $(".tile-container").append(
-        `<div style="order: 2" class="tile about-us-tile card">
+        `<div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx">
             <img class="tile-text" src="img/About-Us.svg" alt="About Us"/>
         </div>
         `
@@ -55,7 +71,7 @@ function loadLinkTiles(){
         const { id, href, title, tileIcon, tileText } = tile;
         $(".tile-container").append(
             `<a style="order: ${id}" class="tile-link card" id="tile-${id}" href="${href}" title="${title}"  target="_blank">
-                <div class="tile">
+                <div class="tile tile-hover-fx">
                     <img class="tile-icon" src=${tileIcon} alt=${title}/>
                     <img class="tile-text" src=${tileText} alt=${title}/>
                 </div>
