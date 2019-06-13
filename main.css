@@ -1,0 +1,129 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* border box-sizing reset */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+  *, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+/* custom css */
+main {
+    padding: 1000px 0px;
+}
+.tile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tile {
+    width: 263px;
+    height: 241px;
+    border-radius: 18px;
+    box-shadow: 2px 2px 8px 2px #9E9E9E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+.tile .tile-icon {
+    width: 91px;
+    height: 91px;
+}
+
+.tile .tile-text {
+    width: 217px;
+    height: 58px;
+}
+
+.about-us-tile {
+    padding-bottom: 53px;
+    justify-content: flex-end;
+}
+
+.about-us-tile .tile-text {
+    width: 100px;
+    height: 31px;
+}
+
+.in-view {
+    background-color: red;
+}
+
+@media screen and (min-width: 701px){
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tile-container {
+        max-width: 700px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .tile {
+        width: 289px;
+        height: 265px;
+        margin: 21.5px 25px;
+    }
+}
+
+
+
