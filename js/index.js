@@ -34,7 +34,7 @@ function closeAboutUs(){
         event.stopPropagation();
         $('.about-us-tile').empty();
         $('.tile').addClass('tile-hover-fx');
-        $('a .tile').css('boxShadow', '2px 2px 9px 3px #595959a8');
+        $('a .tile').addClass('tile-box-shadow');
         $('#tile-2').addClass('about-us-position').css('justifyContent', 'flex-end');
         $('.about-us-tile').removeClass('about-us-modal')
             .html(`
@@ -46,7 +46,7 @@ function closeAboutUs(){
 function aboutUsDisplay(){
     $('.about-us-tile').on('click', () => {
         $('.tile').removeClass('tile-hover-fx');
-        $('a .tile').css('boxShadow', 'none');
+        $('a .tile').removeClass('tile-box-shadow');
         $('#tile-2').css('marginRight', 0);
         setTimeout(() => {
             $('#tile-2').css('justifyContent', 'space-around');
@@ -71,7 +71,7 @@ function aboutUsDisplay(){
 
 function loadAboutUsTile(){
     $(".tile-container").append(
-        `<div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx">
+        `<div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx tile-box-shadow">
             <img class="tile-text" src="img/About-Us.svg" alt="About Us"/>
         </div>
         `
@@ -84,7 +84,7 @@ function loadLinkTiles(){
         const { id, href, title, tileIcon, tileText } = tile;
         $(".tile-container").append(
             `<a style="order: ${id}" class="tile-link card" id="tile-${id}" href="${href}" title="${title}"  target="_blank">
-                <div class="tile tile-hover-fx" id="${id}">
+                <div class="tile tile-hover-fx tile-box-shadow" id="${id}">
                     <img class="tile-icon" src=${tileIcon} alt=${title}/>
                     <img class="tile-text" src=${tileText} alt=${title}/>
                 </div>

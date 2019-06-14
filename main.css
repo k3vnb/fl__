@@ -48,14 +48,22 @@ html {
 /* custom css */
 main {
     /* height: 1504px; */
-    padding: 400px 0px;
+    height: 200vh;
+    /* padding: 400px 0px; */
     background-color: #F0F0F0;
+    /* background-color: grey; */
 }
 .tile-container {
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+@media screen and (max-width: 700px){
+    .tile-container {
+        height: 100%;
+    }
 }
 
 .tile {
@@ -63,13 +71,16 @@ main {
     width: 263px;
     height: 241px;
     border-radius: 18px;
-    box-shadow: 2px 2px 8px 2px #9E9E9E;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 17px;
-    transition: all .2s linear;
+    margin-bottom: 14px;
+    /* transition: all .2s linear; */
+}
+
+.tile-box-shadow {
+    box-shadow: 2px 2px 8px 2px #9E9E9E;
 }
 
 .tile .tile-icon {
@@ -88,7 +99,7 @@ main {
     left: 7.5px; */
     padding-bottom: 53px;
     justify-content: flex-end;
-    transition: .2s all linear;
+    transition: .2s width linear, .2s height linear, box-shadow .2s linear;
 }
 
 .about-us-tile .tile-text {
@@ -103,7 +114,7 @@ main {
     box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.25);
     border-radius: 18px;
     margin: 0;
-    transition: .2s all linear, 1s transform ease-in-out;
+    transition: .2s all linear;
 }
 
 .about-us-modal-text {
@@ -154,10 +165,11 @@ main {
         height: 265px;
         margin: 0;
         margin-bottom: 0;
+        transition: transform .2s ease-out, box-shadow .2s ease-in-out;
     }
     .tile-hover-fx:hover {
-        transform: scale(1.03);
-        box-shadow: 2px 2px 9px 3px #595959a8;
+        transform: translateY(-8px);
+        box-shadow: 1.5px 5px 7px 1.5px #41414373;
         cursor: pointer;
     }
 
@@ -206,29 +218,5 @@ main {
     }
     #tile-2 {
         z-index: 100;
-    }
-}
-
-@media screen and (max-width: 700px){
-    .tile {
-        margin-bottom: 15%;
-    }
-    .y-position-default {
-        transform: scale(1);
-        transition: .1s all linear;
-    }
-    .y-position-1 {
-        transform: scale(1.055);
-        transition: .1s all linear;
-    }
-    .y-position-2 {
-        transform: scale(1.035);
-        box-shadow: 2px 2px 9px 3px #747474b8;
-        transition: .1s all linear;
-    }
-    .y-position-center {
-        transform: scale(1.09885)!important;
-        box-shadow: 2px 2px 9px 3px #595959a8;
-        transition: .2s all linear;
     }
 }
