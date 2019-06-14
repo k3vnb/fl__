@@ -1,46 +1,33 @@
 
-const $window = $(window);
-
-
-// function check_if_in_view() {
-//   const scrollTop = $window.scrollTop();
-//   $('.tile').each(function() {
-//     const el = $(this);
-//     // const element_height = el.outerHeight();
-//     const elTopPosition = el.offset().top;
-//     const distance = scrollTop - elTopPosition;
-//     // console.log($element, distance)
-//     if (distance > -350 && distance < -90){
-//       el.addClass('in-view') 
-//     } else {
-//       el.removeClass('in-view')
-//     }
-//   });
-// }
-
-// 289wx265h
-
-// 263wx241h
-
-//at window.height/2 element should be 1.09885 
-
-  $(window).on('scroll resize', animateTileSize);
-  $(window).trigger('scroll');
-
-function animateTileSize(){
-  const midScreenY = $(window).height()/2;
+function checkTilePosition() {
   const scrollTop = $(window).scrollTop();
-  $('.tile').each(function(){
+  $('.tile').each(function() {
     const tile = $(this);
     const tileTopPosition = tile.offset().top;
-    const tileHalfHeight = tile.outerHeight()/2;
-    const distance = scrollTop - tileTopPosition - tileHalfHeight;
-    // console.log(distance)
-    const scaleBy = midScreenY - Math.abs(distance);
-    console.log(tile, 1.09885/scaleBy);
-    $('.tile').css('transform', `scale(${1.09885 - Math.abs(10.9885/scaleBy) || 1.00001})`)
-  })
+    const yPosition = scrollTop - tileTopPosition;
+
+    tile.addClass('scrollY-view')
+    // if(tile.attr('id') === '0'){
+    //   console.log(el, yPosition)
+    // }
+    if (yPosition > 202 || yPosition < -400){
+      tile.removeClass('y-position-center y-position-2')
+      tile.addClass('y-position-default');
+    } else if (yPosition < 201 && yPosition > -101 || yPosition < -290 && yPosition > -399){
+      tile.removeClass('y-position-center y-position-default')
+      tile.addClass('y-position-2')
+    } else if (yPosition < -200 && yPosition > -290){
+      tile.removeClass('y-position-2 y-position-default')
+      tile.addClass('y-position-center')
+    }
+  });
 }
+
+
+  $(window).on('scroll resize', checkTilePosition);
+  $(window).trigger('scroll');
+
+
  
 
 

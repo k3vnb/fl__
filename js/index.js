@@ -71,7 +71,7 @@ function aboutUsDisplay(){
 
 function loadAboutUsTile(){
     $(".tile-container").append(
-        `<div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx">
+        `<div style="order: 2" id="tile-2 2" class="tile about-us-tile card tile-hover-fx">
             <img class="tile-text" src="img/About-Us.svg" alt="About Us"/>
         </div>
         `
@@ -84,7 +84,7 @@ function loadLinkTiles(){
         const { id, href, title, tileIcon, tileText } = tile;
         $(".tile-container").append(
             `<a style="order: ${id}" class="tile-link card" id="tile-${id}" href="${href}" title="${title}"  target="_blank">
-                <div class="tile tile-hover-fx">
+                <div class="tile tile-hover-fx" id="${id}">
                     <img class="tile-icon" src=${tileIcon} alt=${title}/>
                     <img class="tile-text" src=${tileText} alt=${title}/>
                 </div>
