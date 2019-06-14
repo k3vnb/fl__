@@ -210,22 +210,25 @@ main {
 }
 
 @media screen and (max-width: 700px){
+    .tile {
+        margin-bottom: 15%;
+    }
     .y-position-default {
         transform: scale(1);
+        transition: .1s all linear;
     }
     .y-position-1 {
-        transform: scale(1.015)
+        transform: scale(1.055);
+        transition: .1s all linear;
     }
     .y-position-2 {
         transform: scale(1.035);
         box-shadow: 2px 2px 9px 3px #747474b8;
-        margin: 4% 0;
-        transition: .3s all linear;
+        transition: .1s all linear;
     }
     .y-position-center {
         transform: scale(1.09885)!important;
         box-shadow: 2px 2px 9px 3px #595959a8;
-        margin: 7% 0;
-        transition: .3s all linear;
+        transition: .2s all linear;
     }
 }

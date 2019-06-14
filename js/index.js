@@ -71,7 +71,7 @@ function aboutUsDisplay(){
 
 function loadAboutUsTile(){
     $(".tile-container").append(
-        `<div style="order: 2" id="tile-2 2" class="tile about-us-tile card tile-hover-fx">
+        `<div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx">
             <img class="tile-text" src="img/About-Us.svg" alt="About Us"/>
         </div>
         `
