@@ -47,10 +47,13 @@ function closeAboutUs(){
         event.stopPropagation();
         modalIsActive = false;
         $('.about-us-tile > *').fadeOut(500);
-        $('a .tile').fadeIn(500);
+        if (window.matchMedia('(max-width: 700px)').matches){
+            $('a .tile').fadeIn(500);
+        }
         setTimeout(() => {
             $('.about-us-tile').empty();
             $('.tile').addClass('tile-hover-fx');
+            $('a .tile').addClass('tile-box-shadow').removeClass('hide-tiles');
             $('#tile-2').addClass('about-us-position').css('justifyContent', 'flex-end');
             $('.about-us-tile').removeClass('about-us-modal')
                 .html(`
@@ -63,9 +66,13 @@ function closeAboutUs(){
 function aboutUsDisplay(){
     $('.about-us-tile').on('click', () => {
         modalIsActive = true;
-        $('a .tile').hide().fadeOut(500);
         $('.tile').removeClass('tile-hover-fx');
+        $('a .tile').removeClass('tile-box-shadow').addClass('hide-tiles');
         $('#tile-2').css('marginRight', 0);
+        $('#tile-3').addClass('adjustMargin');
+        if (window.matchMedia('(max-width: 700px)').matches){
+            $('a .tile').fadeOut(500);
+        }
         setTimeout(() => {
             $('#tile-2').css('justifyContent', 'space-around');
             $('.about-us-tile').empty().fadeIn(1000).html(

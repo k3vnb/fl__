@@ -78,7 +78,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
-    transition: .2s visibility ease-in;
+    /* transition: .2s visibility ease-in; */
 }
 
 .tile-box-shadow {
@@ -127,6 +127,7 @@ main {
     .hide-tiles {
         visibility: hidden;
     }
+
 }
 
 
