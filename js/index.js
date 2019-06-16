@@ -30,10 +30,11 @@ const videoData = {
     aboutUsText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia distinctio suscipit voluptatibus vero eos recusandae tempora nihil assumenda, sunt at odio atque dolores quasi fugit dolorem doloremque amet! Maxime, deleniti.'
 }
 
+//<video autoplay="autoplay" class="about-us-video" playsinline="playsinline" muted="muted" poster="">
+//     <source src="${videoData.mp4Link}" type="video/mp4">
+// </video> 
 const aboutUsModalHTML =  `
-    <video autoplay="autoplay" class="about-us-video" playsinline="playsinline" muted="muted" poster="">
-        <source src="${videoData.mp4Link}" type="video/mp4">
-    </video>
+    <img src="img/1x1.gif" class="about-us-video">
     <p class="about-us-modal-text">${videoData.aboutUsText}</p>
     <button class="close-this-modal">
     &#10005;
