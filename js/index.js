@@ -1,5 +1,6 @@
 'use strict'
 
+//STORE contains tiles info for <a> links, it does not contain the about us tile, that one is appended separately
 const STORE = [
     {
         id: 0,
@@ -32,14 +33,17 @@ const videoData = {
 function closeAboutUs(){
     $('.about-us-tile').on('click', 'button', event => {
         event.stopPropagation();
-        $('.about-us-tile').empty();
-        $('.tile').addClass('tile-hover-fx');
-        $('a .tile').addClass('tile-box-shadow');
-        $('#tile-2').addClass('about-us-position').css('justifyContent', 'flex-end');
-        $('.about-us-tile').removeClass('about-us-modal')
-            .html(`
-                <img class="tile-text" src="img/About-Us.svg" alt="About Us"/>
-        `)
+        $('.about-us-tile > *').fadeOut(500);
+        setTimeout(() => {
+            $('.about-us-tile').empty();
+            $('.tile').addClass('tile-hover-fx');
+            $('a .tile').addClass('tile-box-shadow');
+            $('#tile-2').addClass('about-us-position').css('justifyContent', 'flex-end');
+            $('.about-us-tile').removeClass('about-us-modal')
+                .html(`
+                    <img class="tile-text" src="img/About-Us.svg" alt="About Us"/>
+            `)
+        }, 145)
     })
 }
 

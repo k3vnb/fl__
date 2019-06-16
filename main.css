@@ -51,7 +51,7 @@ main {
     height: 233.33vh;
     /* padding: 400px 0px; */
     background-color: #F0F0F0;
-    background-color: grey;
+    /* background-color: grey; */
 }
 .tile-container {
     position: relative;
@@ -78,7 +78,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
-    /* transition: all .2s linear; */
+    /* transition: .2s width linear, .2s height linear, box-shadow .2s linear; */
 }
 
 .tile-box-shadow {
@@ -101,7 +101,7 @@ main {
     left: 7.5px; */
     padding-bottom: 53px;
     justify-content: flex-end;
-    transition: .2s width linear, .2s height linear, box-shadow .2s linear;
+    transition: .2s width linear, 2s height linear, .2s box-shadow ease-in-out;
 }
 
 .about-us-tile .tile-text {
@@ -118,6 +118,7 @@ main {
     margin: 0;
     transition: .2s all linear;
 }
+
 
 .about-us-modal-text {
     font-family: Arial, Helvetica, sans-serif;
@@ -141,7 +142,7 @@ main {
     border: none;
     outline: none;
     background-color: transparent;
-    transition: .1s all linear;
+    transition: .2s all linear;
 }
 .close-this-modal:hover {
     cursor: pointer;
@@ -167,7 +168,7 @@ main {
         height: 265px;
         margin: 0;
         margin-bottom: 0;
-        transition: transform .2s ease-out, box-shadow .2s ease-in-out;
+        transition: transform .2s ease-out, width .2s linear, height .2s linear, box-shadow .2s ease-in-out;
     }
     .tile-hover-fx:hover {
         transform: translateY(-8px)!important;

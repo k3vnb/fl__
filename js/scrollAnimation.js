@@ -2,8 +2,8 @@
 function checkScreenWidth(){
   // these functions are only necessary for mobile view
   if (window.matchMedia('(max-width: 700px)').matches){
+    $(window).on('scroll load', checkTilePosition);
     $(window).trigger('scroll');
-    $(window).on('scroll load ', checkTilePosition);
     adjustTileContainerHeight()
   } else {
     $('.tile').each(function() {
@@ -28,7 +28,7 @@ function adjustTileContainerHeight(){
 }
 
 function checkTilePosition(){
-  // the tiles should get larger as they approach the middle of the screen and smaller as they move away from it. Here we calculate the center of the screen against the middle of the tile and transform scale according to their position.
+  // the tiles should get larger when scrolled on y axis as they approach the middle of the screen and smaller as they move away from it. Here we calculate the y center of the screen against the middle of the tile and transform scale according to their position.
     const scrollTop = $(window).scrollTop();
     $('.tile').each(function() {
       const tile = $(this);
