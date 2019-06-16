@@ -1,6 +1,6 @@
 'use strict'
 
-//STORE contains tiles info for <a> links, it does not contain the about us tile, that one is appended separately
+//STORE contains tiles info for <a> links tiles, it does not contain the about-us tile, that one is appended separately
 const STORE = [
     {
         id: 0,
@@ -30,9 +30,22 @@ const videoData = {
     aboutUsText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia distinctio suscipit voluptatibus vero eos recusandae tempora nihil assumenda, sunt at odio atque dolores quasi fugit dolorem doloremque amet! Maxime, deleniti.'
 }
 
+const aboutUsModalHTML =  `
+    <video autoplay="autoplay" class="about-us-video" playsinline="playsinline" muted="muted" poster="">
+        <source src="${videoData.mp4Link}" type="video/mp4">
+    </video>
+    <p class="about-us-modal-text">${videoData.aboutUsText}</p>
+    <button class="close-this-modal">
+    &#10005;
+    </button>
+    `
+
+let modalIsActive = false;
+
 function closeAboutUs(){
     $('.about-us-tile').on('click', 'button', event => {
         event.stopPropagation();
+        modalIsActive = false;
         $('.about-us-tile > *').fadeOut(500);
         setTimeout(() => {
             $('.about-us-tile').empty();
@@ -49,6 +62,7 @@ function closeAboutUs(){
 
 function aboutUsDisplay(){
     $('.about-us-tile').on('click', () => {
+        modalIsActive = true;
         $('.tile').removeClass('tile-hover-fx');
         $('a .tile').removeClass('tile-box-shadow');
         $('#tile-2').css('marginRight', 0);
@@ -56,13 +70,7 @@ function aboutUsDisplay(){
             $('#tile-2').css('justifyContent', 'space-around');
             $('.about-us-tile').empty().fadeIn(1000).html(
                 `
-                <video autoplay="autoplay" class="about-us-video" playsinline="playsinline" muted="muted" poster="">
-                    <source src="${videoData.mp4Link}" type="video/mp4">
-                </video>
-                <p class="about-us-modal-text">${videoData.aboutUsText}</p>
-                <button class="close-this-modal">
-                    &#10005;
-                </button>
+                    ${aboutUsModalHTML}
                 `);
             $('.about-us-tile > *').fadeIn(500);
         }, 145)

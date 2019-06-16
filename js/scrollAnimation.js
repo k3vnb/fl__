@@ -39,7 +39,10 @@ function checkTilePosition(){
       const standard = 1.14;
       const middle = tileMiddlePosition - scrollTop - windowHeight/2;
       const distanceFromMiddle = Math.abs(middle);
-      tile.css('transform', `scale(${standard - distanceFromMiddle/2400})`)
+      //an active modal upsets the position/sizing in odd ways, so we turn it off in index.js when modal is activated
+      if (!modalIsActive){
+        tile.css('transform', `scale(${standard - distanceFromMiddle/2400})`)
+      }
     });
   }
   
