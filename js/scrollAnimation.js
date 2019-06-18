@@ -4,7 +4,7 @@ function checkScreenWidth(){
   if (window.matchMedia('(max-width: 700px)').matches){
     $(window).on('scroll load', checkTilePosition);
     $(window).trigger('scroll');
-    adjustTileContainerHeight()
+    adjustTileContainerHeight();
   } else {
     $('.tile').each(function() {
       $(this).css('transform', 'scale(1)');
