@@ -1,4 +1,3 @@
-
 function checkScreenWidth(){
   // these functions are only necessary for mobile view
   if (window.matchMedia('(max-width: 700px)').matches){
@@ -14,7 +13,7 @@ function checkScreenWidth(){
 }
 
 function adjustTileContainerHeight(){
-  // the tiles will load at the center of the screen's y-axis regardless of window height. This is done by first setting the elements to align properly for approx. 640px screen-height in css, then we are calculating the device window height and subtracting the difference
+  // the tiles will load at the center of the screen's y-axis regardless of window height. This is done by first setting the elements to align properly for approx. 640px screen-height in css, then we are calculating the window height and subtracting the difference
   windowHeight = $(window).height();
   let px;
   if (windowHeight > 640) {
@@ -36,15 +35,12 @@ function checkTilePosition(){
       const windowHeight = $(window).height(); 
       const tileTopPosition = tile.offset().top; 
       const tileMiddlePosition = tileTopPosition + tileHeight/2;
-      const standard = 1.216;
+      const standard = 1.14;
       const middle = tileMiddlePosition - scrollTop - windowHeight/2;
       const distanceFromMiddle = Math.abs(middle);
       //an active modal upsets the position/sizing in odd ways, so we turn it off in index.js when modal is activated
       if (!modalIsActive){
-        console.log(modalIsActive)
-        tile.css('transform', `scale(${standard - distanceFromMiddle/2500})`)
-      } else {
-        tile.css('transform', `scale(1)`)
+        tile.css('transform', `scale(${standard - distanceFromMiddle/2400})`)
       }
     });
   }

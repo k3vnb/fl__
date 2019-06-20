@@ -34,17 +34,20 @@ const videoData = {
 
 //the two video tags hold the info for your videos (desktop & mobile). You may need some configuration depending on your video type (is it mp4 as stated here? do you want it muted?). If you want a still image to show while the video is downloading it can go in the poster attribute.
 const aboutUsModalHTML =  `
-    <video autoplay="autoplay" class="about-us-video about-us-video-desktop-view" playsinline="playsinline" muted="muted" poster="">
+    <video autoplay="autoplay" class="about-us-video about-us-video-desktop-view" playsinline="playsinline" muted="muted" poster="" loop>
         <source src="${videoData.mp4LinkDesktop}" type="video/mp4">
     </video> 
-    <video autoplay="autoplay" class="about-us-video about-us-video-mobile-view" playsinline="playsinline" muted="muted" poster="">
+    <video autoplay="autoplay" class="about-us-video about-us-video-mobile-view" playsinline="playsinline" muted="muted" poster="" loop>
         <source src="${videoData.mp4LinkMobile}" type="video/mp4">
     </video> 
-    <p class="about-us-modal-text">${videoData.aboutUsText}</p>
+    <h2 class="about-us-modal-text">${videoData.aboutUsText}</h2>
     <button class="close-this-modal" aria-label="Close">
         &#10005;
     </button>
     `
+const aboutUsSmallTileHTML = `
+    <img class="tile-icon" src="img/FlooentGray.svg" alt="About Us"/>
+    <img class="tile-text" src="img/AboutUs.svg" alt="About Us"/>`
 
 // Don't touch the stuff below unless you know what you're doing! Mostly jQuery below, some vanilla JS.
 let modalIsActive = false;
@@ -64,7 +67,7 @@ function closeAboutUs(){
             $('#tile-2').addClass('about-us-position').css('justifyContent', 'flex-end');
             $('.about-us-tile').removeClass('about-us-modal')
                 .html(`
-                    <img class="tile-text" src="img/AboutUs.svg" alt="About Us"/>
+                    ${aboutUsSmallTileHTML}
             `)
         }, 145)
     })
@@ -95,13 +98,11 @@ function aboutUsDisplay(){
 }
 
 function loadAboutUsTile(){
-    $(".tile-container").append(
-        `<div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx tile-box-shadow">
-            <img class="tile-icon" src="img/FlooentGray.svg" alt="About Us"/>
-            <img class="tile-text" src="img/AboutUs.svg" alt="About Us"/>
+    $(".tile-container").append(`
+        <div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx tile-box-shadow">
+            ${aboutUsSmallTileHTML}
         </div>
-        `
-    )
+    `)
     aboutUsDisplay();
 }
 
