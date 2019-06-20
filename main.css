@@ -86,7 +86,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     /* transition: .2s visibility ease-in; */
 }
 
@@ -95,8 +95,8 @@ main {
 }
 
 .tile .tile-icon {
-    width: 91px;
-    height: 91px;
+    width: 120px;
+    height: auto;
 }
 
 .tile .tile-text {
@@ -160,7 +160,7 @@ main {
 
 .close-this-modal {
     position: absolute;
-    font-size: 14px;
+    font-size: 24px;
     top: 1%;
     right: 1%;
     border: none;
@@ -170,7 +170,7 @@ main {
 }
 .close-this-modal:hover {
     cursor: pointer;
-    font-size: 14.5px;
+    font-size: 25px;
 }
 .flooent-edu-modal {
     position: fixed;

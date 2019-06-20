@@ -27,9 +27,9 @@ const STORE = [
 
 //change the address of the animation to wherever your animation is hosted. Right now they point to the same movie, but the dimensions should hold so that a 1x1 aspect ration works in mobile and 16x9 works in desktop.  Change the aboutUsText to say whatever copy you'd like in that element.
 const videoData = {
-    mp4LinkMobile: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    mp4LinkDesktop: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    aboutUsText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia distinctio suscipit voluptatibus vero eos recusandae tempora nihil assumenda, sunt at odio atque dolores quasi fugit dolorem doloremque amet! Maxime, deleniti.'
+    mp4LinkMobile: 'img/video/Flooent-Technology-480p.mp4',
+    mp4LinkDesktop: 'img/video/Flooent-Technology-720p.mp4',
+    aboutUsText: 'This is Flooent Technical Translation in action'
 }
 
 //the two video tags hold the info for your videos (desktop & mobile). You may need some configuration depending on your video type (is it mp4 as stated here? do you want it muted?). If you want a still image to show while the video is downloading it can go in the poster attribute.
@@ -97,6 +97,7 @@ function aboutUsDisplay(){
 function loadAboutUsTile(){
     $(".tile-container").append(
         `<div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx tile-box-shadow">
+            <img class="tile-icon" src="img/FlooentGray.svg" alt="About Us"/>
             <img class="tile-text" src="img/AboutUs.svg" alt="About Us"/>
         </div>
         `
