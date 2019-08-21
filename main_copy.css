@@ -1,0 +1,31 @@
+
+
+/* custom css */
+
+
+#tile-3 {
+    scroll-snap-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 701px){
+
+    #tile-0, #tile-2 {
+        margin-right: 50px;
+    }
+    #tile-0, #tile-1 {
+        margin-bottom: 43px;
+    }
+    #tile-2 {
+        z-index: 100;
+    }
+}

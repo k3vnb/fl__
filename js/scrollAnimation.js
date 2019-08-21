@@ -8,7 +8,7 @@ function checkScreenWidth(){
     $('.tile').each(function() {
       $(this).css('transform', 'scale(1)');
     })
-    $('main').css('height', '100vh');
+    // $('main').css('height', 'default');
   }
 }
 
