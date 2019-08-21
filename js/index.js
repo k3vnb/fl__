@@ -69,50 +69,33 @@ function closeAboutUs(){
     $('.about-us-tile').on('click', 'button', event => {
         event.stopPropagation();
         modalIsActive = false;
-        $('.about-us-tile > *').fadeOut(500);
-        if (window.matchMedia('(max-width: 700px)').matches){
-            $('a .tile').fadeIn(500);
-        }
+        $('.about-us-modal').empty()
+        $('.about-us-tile').removeClass('about-us-modal');
         setTimeout(() => {
-            $('.tile').addClass('tile-hover-fx');
-            $('.tile').addClass('tile-box-shadow').removeClass('hide-tiles');
-            $('#tile-2').addClass('about-us-position').css('justifyContent', 'flex-end');
+            $('.tile-container').empty();
+            loadLinkTiles()
         }, 145)
     })
 }
 
 //About Us tile needs to have the {id: 2} in the STORE array
 function aboutUsDisplay(){
-    $('#tile-2').addClass('about-us-tile');
+    $('#tile-2').addClass('about-us-tile').removeClass('tile-link');
     $('.about-us-tile').on('click', () => {
         modalIsActive = true;
-        $('.tile').removeClass('tile-hover-fx');
-        $('.tile').removeClass('tile-box-shadow').addClass('hide-tiles');
-        if (window.matchMedia('(max-width: 700px)').matches){
-            $('.tile').fadeOut(500);
-        }
         setTimeout(() => {
-            $('#tile-2').css('justifyContent', 'space-around');
-            $('.about-us-tile').empty().fadeIn(1000).html(
+            $('.about-us-tile').addClass('about-us-modal');
+            $('.tile-link').hide(500);
+            // $('.about-us-tile > *').hide()
+            $('.about-us-modal').html(
                 `
                     ${aboutUsModalHTML}
                 `);
-            $('.about-us-tile > *').fadeIn(500);
-        }, 145)
-        $('.about-us-tile').addClass('about-us-modal');
+        }, 145);
     })
-
     closeAboutUs()
 }
 
-// function loadAboutUsTile(){
-//     $(".tile-container").append(`
-//         <div style="order: 2" id="tile-2" class="tile about-us-tile card tile-hover-fx tile-box-shadow">
-//             ${aboutUsSmallTileHTML}
-//         </div>
-//     `)
-//     aboutUsDisplay();
-// }
 
 function onCloseFlooentEDUClick(){
     $('.close-fl-edu-modal').click(() => {
