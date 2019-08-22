@@ -69,12 +69,14 @@ function closeAboutUs(){
     $('.about-us-tile').on('click', 'button', event => {
         event.stopPropagation();
         modalIsActive = false;
-        $('.about-us-modal').empty()
-        $('.about-us-tile').removeClass('about-us-modal');
+        $('.about-us-modal > *').fadeOut(550).delay(800)
+        $('.about-us-modal').addClass('shrink').delay(800)
         setTimeout(() => {
-            $('.tile-container').empty();
+            $('.tile-container').empty(500);
             loadLinkTiles()
-        }, 145)
+            // $('.tile-container').fadeOut(500);
+            // $('.about-us-tile').fadeOut(500);
+        }, 300)
     })
 }
 
@@ -115,6 +117,7 @@ function onFlooentEDUClick(){
 }
 
 function loadLinkTiles(){
+    $('.tile-container').fadeIn(600).css('display', 'flex');
     STORE.forEach(tile => {
         const { id, href, title, tileIcon, tileText } = tile;
         const linkAttr = href.length ? 'href' : 'name';
