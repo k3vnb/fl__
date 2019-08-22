@@ -60,7 +60,24 @@ const aboutUsModalHTML =  `
         &#10005;
     </button>
     `
-
+const flEduModalInner = `
+    <img src="img/FlooentEdu-Icon.svg" alt="Flooent Edu education translation services">
+    <img src="img/FlooentEdu-Text.svg" alt="Flooent Edu is coming soon">
+    <h2 class="sr-only">FlooentEDU</h2>
+    <p>Is Coming Soon</p>
+    <button class="close-this-modal" aria-label="Close">
+            &#10005;
+    </button>
+`
+const flFinModalInner = `
+    <img src="img/FlooentFin-Icon.svg" alt="Flooent Financial translation services">
+    <img src="img/FlooentFin-Text.svg" alt="Flooent Financial is under construction">
+    <h2 class="sr-only">FlooentFin</h2>
+    <p>Is Under Construction</p>
+    <button class="close-this-modal" aria-label="Close">
+            &#10005;
+    </button>
+`
 
 // Don't touch the stuff below unless you know what you're doing! Mostly jQuery below, some vanilla JS.
 let modalIsActive = false;
@@ -99,21 +116,35 @@ function aboutUsDisplay(){
 }
 
 
-function onCloseFlooentEDUClick(){
-    $('.close-fl-edu-modal').click(() => {
+function onCloseModalClick(){
+    $('.close-this-modal').click(() => {
         modalIsActive = false;
-        $('.flooent-edu-modal').fadeOut(500)
+        $('.modal').fadeOut(500)
         $('.tile-container').fadeIn(200)
     })
 }
 
 function onFlooentEDUClick(){
     $('.tile-container').on('click', '#tile-3', () => {
+        $('.modal-inner').html(`
+            ${flEduModalInner}
+        `)
         modalIsActive = true;
         $('.tile-container').fadeOut(500)
-        $('.flooent-edu-modal').fadeIn(500)
+        $('.modal').fadeIn(500)
+        onCloseModalClick();
     })
-    onCloseFlooentEDUClick();
+}
+function onFlooentFINClick(){
+    $('.tile-container').on('click', '#tile-4', () => {
+        $('.modal-inner').html(`
+            ${flFinModalInner}
+        `)
+        modalIsActive = true;
+        $('.tile-container').fadeOut(500)
+        $('.modal').fadeIn(500)
+        onCloseModalClick();
+    })
 }
 
 function loadLinkTiles(){
@@ -133,6 +164,7 @@ function loadLinkTiles(){
 
     aboutUsDisplay();
     onFlooentEDUClick();
+    onFlooentFINClick();
 }
 
 

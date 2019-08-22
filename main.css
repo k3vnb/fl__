@@ -65,6 +65,8 @@ body {
 main {
     background-color: #F0F0F0;
     margin: 30% 0%;
+    min-height: 100vh;
+    outline: none;
 }
 
 .tile-container {
@@ -114,6 +116,7 @@ main {
 } */
 
 .about-us-tile {
+    cursor: pointer;
     transition: .2s all linear;
 }
 
@@ -167,9 +170,9 @@ main {
 
 .close-this-modal {
     position: absolute;
-    font-size: 24px;
-    top: 1%;
-    right: 1%;
+    font-size: 25px;
+    top: 1.5%;
+    right: 1.5%;
     border: none;
     outline: none;
     background-color: transparent;
@@ -180,16 +183,17 @@ main {
     font-size: 25px;
 }
 
-.flooent-edu-modal {
+.modal {
     position: fixed;
+    top: 0;
     height: 100vh;
-    width: 100vw;
+    width: 60vw;
     padding: 5%;
     display: none;
     background-color: white;
     text-align: center;
 }
-.flooent-edu-modal-inner {
+.modal-inner {
     height: 100%;
     width: 100%;
     padding: 5%;
@@ -203,9 +207,14 @@ main {
     .about-us-modal{
         position: fixed;
         top: 7%;
+        left: 7%;
     }
     .about-us-modal-text {
         padding: 4% 4% 5%!important;
+    }
+    .modal {
+        width: 90vw;
+        margin: 0 5%;
     }
 }
 @media screen and (max-width: 350px){
@@ -285,9 +294,15 @@ main {
 }
 
 .shrink {
-    position: fixed;
+    position: relative;
     bottom: 0;
-    left: 20%;
+    left: 0%;
     width: 289px;
     height: 265px;
+}
+@media screen and (max-width: 700px){
+    .shrink {
+        width: 263px;
+        height: 241px;
+    }
 }
