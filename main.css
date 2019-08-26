@@ -111,10 +111,6 @@ main {
     height: 58px;
 }
 
-/* .hide-tiles {
-    visibility: hidden;
-} */
-
 .about-us-tile {
     cursor: pointer;
     transition: .2s all linear;
@@ -223,8 +219,6 @@ main {
         line-height: 20px;
         font-size: 16px;
         margin-top: 0%;
-        /* overflow-y: hidden; */
-
     }
     
     .about-us-video {  
@@ -235,7 +229,6 @@ main {
 
 @media screen and (min-width: 701px){
     main {
-        /* height: 100vh; */
         margin: 0;
         padding: 8% 0%;
         display: flex;
@@ -294,9 +287,9 @@ main {
 }
 
 .shrink {
-    position: relative;
-    bottom: 0;
-    left: 0%;
+    position: fixed;
+    bottom: -5%;
+    left: 10%;
     width: 289px;
     height: 265px;
 }
